@@ -1,0 +1,45 @@
+@import "header.css";
+
+:root {
+  --background-body: #e1d4c9;
+  --background-container: #665f55;
+  --border-light: #c1b6ad;
+  --border-dark: #665f55;
+  --text-light: #e1d4c9;
+  --text-accent: #b0907a;
+  --text-dark: #403f3d;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../asserts/fonts/Inter/Inter-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../asserts/fonts/Inter/Inter-Regular.ttf");
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Inter;
+  scroll-behavior: smooth;
+  background-color: var(--background-body);
+  font-feature-settings:
+    "clig" off,
+    "liga" off;
+}
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+}
