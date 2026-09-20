@@ -42,169 +42,277 @@ body {
 }
 
 .section_enjoy {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    padding: 100px 0px 100px 7.34%;
-    margin-top: 20px;
-    border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  padding: 100px 0px 100px 7.34%;
+  margin-top: 20px;
+  border-radius: 40px;
 }
 
 .section_enjoy video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
-    z-index: -100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: -100;
 }
 
 .enjoy_wrapper {
-    width: 530px;
-    color: var(--text-light);
+  width: 530px;
+  color: var(--text-light);
 }
 
 .enjoy_wrapper .focus_text,
 .enjoy_wrapper h1 {
-    font-size: 72px;
-    font-weight: 600;
-    line-height: 105%;
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 105%;
 }
 
 .enjoy_wrapper p {
-    margin-top: 41px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 150%;
+  margin-top: 41px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
 }
 
 .enjoy_wrapper .menu {
-    margin-top: 40px;
-    display: flex;
-    width: 200px;
-    padding: 20px 0px;
-    justify-content: flex-end;
-    border-radius: 100px;
-    background-color: var(--background-body);
-    color: var(--text-dark);
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 150%;
-    transition: all 300ms ease-in;
+  margin-top: 40px;
+  display: flex;
+  width: 200px;
+  padding: 20px 0px;
+  justify-content: flex-end;
+  border-radius: 100px;
+  background-color: var(--background-body);
+  color: var(--text-dark);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  transition: all 300ms ease-in;
 }
 
 .enjoy_wrapper .coffee-cup-button {
-    margin-right: 60px;
-    transition: opacity 300ms ease-in;
-    opacity: 0;
-    overflow: hidden;
+  margin-right: 60px;
+  transition: opacity 300ms ease-in;
+  opacity: 0;
+  overflow: hidden;
 }
 
 /******Favorite********/
 .section_favorite {
-    margin-top: 100px;
-    text-align: center;
+  margin-top: 100px;
+  text-align: center;
 }
 
 .section_favorite h2 {
-    text-align: center;
-    margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .slider {
-    height: 684px;
-    position: relative;
-    color: var(--text-dark);
+  height: 684px;
+  position: relative;
+  color: var(--text-dark);
 }
 
 .slides-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 480px;
-    height: 100%;
-    overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 100%;
+  overflow: hidden;
 }
 
 .slide {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    animation: .5s ease-in-out;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  animation: 0.5s ease-in-out;
 }
 
 .slide {
-    display: none;
+  display: none;
 }
 
 .slide.active,
 .slide.next {
-    display: flex;
+  display: flex;
 }
 
 .coffee_name {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 125%;
-    margin-top: 17px;
-    margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+  margin-top: 17px;
+  margin-bottom: 15px;
 }
 
 .coffee_description {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 150%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
 }
 
 .coffee_price {
-    font-size: 24px;
-    font-weight: 600;
-    margin-top: 17px;
-    margin-bottom: 40px;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 17px;
+  margin-bottom: 40px;
 }
 
 .left_arrow,
 .right_arrow {
-    position: absolute;
-    top: 42.5%;
+  position: absolute;
+  top: 42.5%;
 }
 
 .left_arrow {
-    left: 5px;
+  left: 5px;
 }
 
 .right_arrow {
-    right: 5px;
+  right: 5px;
 }
 
 .controls {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    gap: 12px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
 .controll-wrapper {
-    width: 40px;
-    height: 4px;
-    border-radius: 100px;
-    background-color: var(--border-light);
+  width: 40px;
+  height: 4px;
+  border-radius: 100px;
+  background-color: var(--border-light);
 }
 
 .control {
-    width: 100%;
-    height: 4px;
-    border-radius: 100px;
-    background-color: var(--border-light);
+  width: 100%;
+  height: 4px;
+  border-radius: 100px;
+  background-color: var(--border-light);
 }
 
 .control.active {
-    background-color: var(--border-dark);
-    animation: progress 7s linear;
+  background-color: var(--border-dark);
+  animation: progress 7s linear;
+}
+
+.section_about {
+  margin-top: 100px;
+}
+
+.galery {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  width: 660px;
+  height: 590px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.left_row .frame_second,
+.right_row .frame_first {
+  height: 430px;
+}
+
+.frame img {
+  width: 100%;
+  transform: scale(110%);
+  transition: 500ms ease-out;
+}
+
+.mobile-app {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  margin-top: 100px;
+}
+
+.offer {
+  width: 630px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-top: 94px;
+}
+
+.offer h2 {
+  margin-top: 50px;
+}
+
+.offer .buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.download_block_buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.button-download {
+  display: flex;
+  width: 200px;
+  padding: 12px 20px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid var(--border-dark);
+  background-color: var(--background-body);
+}
+
+.offer .description {
+  color: var(--text-dark);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.button-download .text {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-download .description {
+  color: var(--text-dark);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 140%;
+  text-align: left;
+}
+
+.button-download .platform {
+  color: var(--text-dark);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+.screens img {
+  width: 100%;
+}
+
+.right_arrow {
+  transform: rotate(180deg);
 }
