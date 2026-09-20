@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <title>Coffee-House</title>
+    <link rel="icon" type="image/x-icon" href="asserts/img/ico/coffee-cup.ico">
 </head>
 
 <body>
@@ -46,6 +47,45 @@
                     <span class="btn-menu-text">Menu</span>
                     <img class="coffee-cup-button" src="asserts/img/svg/header/coffee-cup.svg" alt="coffee-cup">
                 </button>
+            </div>
+        </section>
+        <section id="favorite" class="section_favorite">
+            <h2>Choose your <span class="focus_text">favorite</span> coffee</h2>
+            <div class="slider">
+                <div class="slides-container">
+                    <div class="slide active">
+                        <div class="cofee_image"><img src="asserts/img/png/slide-1.png" alt="slide-1"></div>
+                        <div class="coffee_name">S’mores Frappuccino</div>
+                        <div class="coffee_description">This new drink takes an espresso and mixes it with brown
+                            sugar and cinnamon before being topped with oat milk.</div>
+                        <div class="coffee_price">$5.50</div>
+                    </div>
+                </div>
+                <div class="left_arrow">
+                    <svg class="svg-arrow" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect class="rect" x="0.5" y="0.5" width="59" height="59" rx="29.5" stroke="#665F55" />
+                        <path class="path" d="M36.5 30H24M24 30L30 24M24 30L30 36" stroke="#403F3D"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="right_arrow"><svg class="svg-arrow" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect class="rect" x="0.5" y="0.5" width="59" height="59" rx="29.5" stroke="#665F55" />
+                        <path class="path" d="M36.5 30H24M24 30L30 24M24 30L30 36" stroke="#403F3D"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg></div>
+                <div class="controls">
+                    <div class="controll-wrapper">
+                        <div class="control active" value=0 data-value="0"></div>
+                    </div>
+                    <div class="controll-wrapper">
+                        <div class="control" value=1 data-value="1"></div>
+                    </div>
+                    <div class="controll-wrapper">
+                        <div class="control" value=2 data-value="2"></div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
