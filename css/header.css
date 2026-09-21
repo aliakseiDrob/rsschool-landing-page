@@ -28,6 +28,10 @@
   gap: 41px;
 }
 
+.nav_item {
+  position: relative;
+}
+
 .nav_list a {
   text-decoration: none;
   color: var(--text-dark);
@@ -38,8 +42,10 @@
   color: var(--text-dark);
   height: 20px;
   margin-top: 18px;
+  margin-left: 80px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .coffee-cup {
@@ -66,6 +72,14 @@
 @media only screen and (max-width: 1024px) {
   .nav_list {
     gap: 15px;
+  }
+
+  .header_menu_wrapper {
+    width: 100%;
+  }
+
+  .nav_list {
+    padding-left: 0;
   }
 }
 
@@ -218,12 +232,15 @@
 }
 
 input:checked + .theme-slider {
-  background-color: #e2e8f0;
+  background-color: var(--background-body);
 }
 
 input:checked + .theme-slider:before {
   transform: translateX(38px);
-  background-color: #1a202c;
+}
+
+input:checked + .theme-slider .moon svg path {
+  fill: var(--text-light);
 }
 
 .icon {

@@ -47,12 +47,10 @@ button {
   padding: 0 40px 100px;
 }
 
-.focus_text {
-  color: var(--text-accent);
-  font-size: 60px;
+.accent-text {
   font-style: italic;
-  font-weight: 600;
-  line-height: 1.25;
+  color: var(--text-accent);
+  font-style: italic;
 }
 
 .menu_link:after {
@@ -275,5 +273,46 @@ h1 {
 
   .modal-product {
     max-height: 625px;
+  }
+}
+
+@media (hover: hover) {
+  .menu_link:hover {
+    cursor: default;
+  }
+
+  .menu-btn:hover {
+    background-color: var(--background-container);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: 500ms ease-out;
+  }
+
+  .controls .active:hover {
+    cursor: default;
+  }
+
+  .menu-btn:hover .icon_wrapper {
+    background-color: var(--background-body);
+    transition: 500ms ease-out;
+  }
+
+  .product:hover img {
+    transform: scale(100%);
+  }
+
+  .size:hover,
+  .additives:hover {
+    background-color: var(--background-container, #665f55);
+  }
+
+  .size:hover :first-child,
+  .additives:hover :first-child {
+    background-color: var(--background-body);
+  }
+
+  .size:hover :last-child,
+  .additives:hover :last-child {
+    color: var(--background-body);
   }
 }

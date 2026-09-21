@@ -1,3 +1,7 @@
+.footer .content-wrapper {
+  padding-bottom: 40px;
+}
+
 .footer_wrapper {
   padding: 100px;
   display: flex;

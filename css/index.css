@@ -95,6 +95,7 @@ body {
   border: none;
   border-radius: 100px;
   background-color: var(--background-body);
+  color: var(--text-dark);
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
@@ -302,7 +303,7 @@ body {
 }
 
 .button-download .description {
-  color: inherit;
+  color: var(--text-dark);
   font-size: 10px;
   font-weight: 600;
   line-height: 140%;
@@ -404,5 +405,68 @@ body {
 @media only screen and (max-width: 720px) {
   .slides-container {
     width: 100%;
+  }
+}
+
+@media (hover: hover) {
+  .enjoy_wrapper .menu:hover,
+  .left_arrow:hover,
+  .right_arrow:hover {
+    cursor: pointer;
+  }
+
+  .controls .active:hover {
+    cursor: default;
+  }
+
+  .enjoy_wrapper .menu:hover .coffee-cup-button {
+    opacity: 1;
+    overflow: visible;
+  }
+
+  .enjoy_wrapper .menu:hover .btn-menu-text {
+    margin-right: 8px;
+    transition: all 300ms ease-in;
+  }
+
+  .control__1:hover,
+  .control__2:hover,
+  .control__3:hover {
+    cursor: pointer;
+    background-color: var(--border-dark);
+  }
+
+  .frame:hover img {
+    transform: scale(100%);
+  }
+
+  .svg-arrow:hover {
+    fill: var(--background-container);
+    transition: fill 500ms ease-out;
+  }
+
+  .svg-arrow:hover .path,
+  .svg-arrow:hover .rect {
+    stroke: var(--text-light);
+    transition: stroke 500ms ease-out;
+  }
+
+  .button-download:hover {
+    cursor: pointer;
+    background-color: var(--background-container);
+    color: var(--text-light);
+    border: none;
+    transition: background-color 500ms ease-in;
+  }
+
+  .button-download:hover span {
+    color: var(--text-light);
+    transition: color 500ms ease-in;
+  }
+
+  .button-download:hover .apple,
+  .button-download:hover .google {
+    fill: var(--background-body);
+    transition: fill 500ms ease-in;
   }
 }
