@@ -43,6 +43,11 @@ body {
   line-height: 125%;
 }
 
+.accent-text {
+  font-style: italic;
+  color: var(--text-accent);
+}
+
 .section-enjoy_content {
   width: 100%;
   position: relative;
@@ -65,7 +70,6 @@ body {
   color: var(--text-light);
 }
 
-.enjoy_wrapper .focus_text,
 .enjoy_wrapper h1 {
   font-size: 72px;
   font-weight: 600;
