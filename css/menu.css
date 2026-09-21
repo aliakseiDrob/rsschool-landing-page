@@ -275,3 +275,44 @@ h1 {
     max-height: 625px;
   }
 }
+
+@media (hover: hover) {
+  .menu_link:hover {
+    cursor: default;
+  }
+
+  .menu-btn:hover {
+    background-color: var(--background-container);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: 500ms ease-out;
+  }
+
+  .controls .active:hover {
+    cursor: default;
+  }
+
+  .menu-btn:hover .icon_wrapper {
+    background-color: var(--background-body);
+    transition: 500ms ease-out;
+  }
+
+  .product:hover img {
+    transform: scale(100%);
+  }
+
+  .size:hover,
+  .additives:hover {
+    background-color: var(--background-container, #665f55);
+  }
+
+  .size:hover :first-child,
+  .additives:hover :first-child {
+    background-color: var(--background-body);
+  }
+
+  .size:hover :last-child,
+  .additives:hover :last-child {
+    color: var(--background-body);
+  }
+}

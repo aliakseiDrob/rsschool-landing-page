@@ -28,6 +28,10 @@
   gap: 41px;
 }
 
+.nav_item {
+  position: relative;
+}
+
 .nav_list a {
   text-decoration: none;
   color: var(--text-dark);
@@ -41,6 +45,7 @@
   margin-left: 80px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .coffee-cup {
