@@ -47,12 +47,10 @@ button {
   padding: 0 40px 100px;
 }
 
-.focus_text {
-  color: var(--text-accent);
-  font-size: 60px;
+.accent-text {
   font-style: italic;
-  font-weight: 600;
-  line-height: 1.25;
+  color: var(--text-accent);
+  font-style: italic;
 }
 
 .menu_link:after {

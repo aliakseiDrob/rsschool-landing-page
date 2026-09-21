@@ -95,6 +95,7 @@ body {
   border: none;
   border-radius: 100px;
   background-color: var(--background-body);
+  color: var(--text-dark);
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
@@ -302,7 +303,7 @@ body {
 }
 
 .button-download .description {
-  color: inherit;
+  color: var(--text-dark);
   font-size: 10px;
   font-weight: 600;
   line-height: 140%;
