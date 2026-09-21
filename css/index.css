@@ -24,7 +24,8 @@ html {
   background-color: var(--background-body);
 }
 
-h1 {
+h1,
+h2 {
   margin: 0;
 }
 
@@ -34,13 +35,14 @@ body {
 }
 
 .content-wrapper {
-  padding: 0 40px;
+  padding: 0 40px 100px;
   display: flex;
 }
 
 .section-header {
-  font-size: 3.5rem;
+  font-size: 3.75rem;
   line-height: 125%;
+  margin-bottom: 40px;
 }
 
 .accent-text {
@@ -105,15 +107,12 @@ body {
   overflow: hidden;
 }
 
-/******Favorite********/
-.section_favorite {
-  margin-top: 100px;
-  text-align: center;
+.section_favorite .content-wrapper {
+  flex-direction: column;
 }
 
-.section_favorite h2 {
+.section_favorite .section-header {
   text-align: center;
-  margin-bottom: 40px;
 }
 
 .slider {
@@ -162,6 +161,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
+  text-align: center;
 }
 
 .coffee_price {
@@ -214,8 +214,8 @@ body {
   animation: progress 7s linear;
 }
 
-.section_about {
-  margin-top: 100px;
+.section_about .content-wrapper {
+  flex-direction: column;
 }
 
 .galery {
@@ -228,11 +228,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
   width: 660px;
   height: 590px;
   border-radius: 20px;
   overflow: hidden;
+}
+
+.left_row,
+.right_row {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .left_row .frame_second,
@@ -246,11 +252,11 @@ body {
   transition: 500ms ease-out;
 }
 
-.mobile-app {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 100px;
-  margin-top: 100px;
+.mobile-app .content-wrapper {
+  justify-content: space-between;
+}
+.mobile-app .section-header {
+  margin: 0;
 }
 
 .offer {
@@ -259,11 +265,7 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   gap: 40px;
-  padding-top: 94px;
-}
-
-.offer h2 {
-  margin-top: 50px;
+  padding-top: 140px;
 }
 
 .offer .buttons {
