@@ -9,5 +9,6 @@
 }
 
 [data-theme="dark"] {
-    --background-body: #292826;
+  --background-body: #292826;
+  --text-dark: #e1d4c9;
 }
