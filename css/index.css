@@ -220,6 +220,7 @@ body {
 
 .galery {
   display: flex;
+  justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
 }
@@ -322,4 +323,87 @@ body {
 
 .right_arrow {
   transform: rotate(180deg);
+}
+
+@media only screen and (max-width: 1024px) {
+  .offer {
+    padding: 0;
+  }
+  .mobile-app .content-wrapper {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .left_row .frame_second,
+  .right_row .frame_first {
+    display: none;
+  }
+
+  .frame {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .content-wrapper {
+    padding: 0 16px;
+  }
+
+  .section-header {
+    font-size: 32px;
+  }
+
+  .section_enjoy .section-header {
+    font-size: 42px;
+    line-height: 115%;
+  }
+
+  .section_enjoy {
+    padding: 60px 16px;
+  }
+
+  .left_arrow,
+  .right_arrow {
+    display: none;
+  }
+
+  .coffee_description {
+    width: 100%;
+  }
+
+  .focus_text {
+    font-size: 32px;
+  }
+
+  .frame img {
+    transform: scale(210%);
+  }
+
+  .offer {
+    width: 100%;
+  }
+
+  .mobile-app {
+    gap: 39px;
+  }
+
+  .download_block_buttons {
+    flex-wrap: wrap;
+  }
+
+  .screens {
+    margin-left: 0px;
+  }
+
+  .screens img {
+    width: 348px;
+    height: 348px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .slides-container {
+    width: 100%;
+  }
 }
