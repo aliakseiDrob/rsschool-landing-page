@@ -1,4 +1,5 @@
 .header .content-wrapper {
+  position: relative;
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
@@ -167,4 +168,71 @@
     width: 100%;
     left: 0;
   }
+}
+
+.theme-switch {
+  position: absolute;
+  display: inline-block;
+  right: 160px;
+  top: 30px;
+  width: 60px;
+  height: 32px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-slider {
+  width: 80px;
+  height: 44px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-body);
+  border: 1px solid var(--border-light);
+  border-radius: 100px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.theme-slider:before {
+  position: absolute;
+  content: "";
+  height: 36px;
+  width: 36px;
+  left: 2px;
+  bottom: 3px;
+  background-color: var(--text-accent);
+  border-radius: 50%;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+input:checked + .theme-slider {
+  background-color: #e2e8f0;
+}
+
+input:checked + .theme-slider:before {
+  transform: translateX(38px);
+  background-color: #1a202c;
+}
+
+.icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  user-select: none;
 }
