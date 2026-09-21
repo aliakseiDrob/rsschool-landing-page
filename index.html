@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>Coffee-House</title>
     <link rel="icon" type="image/x-icon" href="asserts/img/ico/coffee-cup.ico">
 </head>
 
 <body>
     <header class="header">
-        <div class="header_wrapper">
+        <div class="content-wrapper">
             <img class="logo" src="asserts/img/svg/header/logo.svg" alt="logo">
             <div class="header_menu_wrapper">
                 <nav class="nav">
@@ -35,22 +35,27 @@
     </header>
     <main class="main">
         <section class="section_enjoy">
-            <video autoplay muted loop>
-                <source src="asserts/video/enjoy-720.mp4" type="video/mp4" />
-            </video>
-            <div class="enjoy_wrapper">
-                <h1><span class="focus_text">Enjoy</span> premium coffee at our charming cafe</h1>
-                <p>With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular
-                    destination for coffee lovers and those seeking a warm and inviting space to enjoy their
-                    favorite beverage.</p>
-                <button class="menu" onclick="location.href='menu.html'">
-                    <span class="btn-menu-text">Menu</span>
-                    <img class="coffee-cup-button" src="asserts/img/svg/header/coffee-cup.svg" alt="coffee-cup">
-                </button>
+            <div class="content-wrapper">
+                <div class="section-enjoy_content"><video autoplay muted loop>
+                        <source src="asserts/video/enjoy-720.mp4" type="video/mp4" />
+                    </video>
+                    <div class="enjoy_wrapper">
+                        <h1><span class="focus_text">Enjoy</span> premium coffee at our charming cafe</h1>
+                        <p>With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a
+                            popular
+                            destination for coffee lovers and those seeking a warm and inviting space to enjoy their
+                            favorite beverage.</p>
+                        <button class="menu" onclick="location.href='menu.html'">
+                            <span class="btn-menu-text">Menu</span>
+                            <img class="coffee-cup-button" src="asserts/img/svg/header/coffee-cup.svg" alt="coffee-cup">
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </section>
         <section id="favorite" class="section_favorite">
-            <h2>Choose your <span class="focus_text">favorite</span> coffee</h2>
+            <h2 class="section-header">Choose your <span class="focus_text">favorite</span> coffee</h2>
             <div class="slider">
                 <div class="slides-container">
                     <div class="slide active">
@@ -89,7 +94,8 @@
             </div>
         </section>
         <section id="about" class="section_about">
-            <h2>Resource is <span class="focus_text">the perfect and cozy place</span> where you can enjoy a variety
+            <h2 class="section-header">Resource is <span class="focus_text">the perfect and cozy place</span> where you
+                can enjoy a variety
                 of hot beverages,
                 relax, catch up with friends, or get some work done.</h2>
             <div class="galery">
@@ -111,7 +117,7 @@
         </section>
         <section id="mobile-app" class="mobile-app">
             <div class="offer">
-                <h2><span class="focus_text">Download</span> our apps to start ordering</h2>
+                <h2 class="section-header"><span class="focus_text">Download</span> our apps to start ordering</h2>
                 <div class="description">Download the Resource app today and experience the comfort of ordering your
                     favorite coffee from wherever you are</div>
                 <div class="download_block_buttons">

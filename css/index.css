@@ -2,10 +2,6 @@
 @import "header.css";
 @import "footer.css";
 
-::-webkit-scrollbar {
-  width: 0;
-}
-
 @font-face {
   font-family: "Inter";
   src: url("../asserts/fonts/Inter/Inter-SemiBold.ttf");
@@ -28,18 +24,31 @@ html {
   background-color: var(--background-body);
 }
 
+h1 {
+  margin: 0;
+}
+
 body {
   max-width: 1440px;
   margin: 0 auto;
 }
 
-.section_enjoy {
+.content-wrapper {
+  padding: 0 40px;
+  display: flex;
+}
+
+.section-header {
+  font-size: 3.5rem;
+  line-height: 125%;
+}
+
+.section-enjoy_content {
+  width: 100%;
   position: relative;
   overflow: hidden;
-  display: flex;
-  padding: 100px 0px 100px 7.34%;
-  margin-top: 20px;
   border-radius: 40px;
+  padding: 100px 0 100px 100px;
 }
 
 .section_enjoy video {
