@@ -7,3 +7,8 @@
   --text-accent: #b0907a;
   --text-dark: #403f3d;
 }
+
+[data-theme="dark"] {
+  --background-body: #292826;
+  --text-dark: #e1d4c9;
+}
