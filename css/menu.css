@@ -9,16 +9,12 @@
 html {
   font-family: "Inter", sans-serif;
   scroll-behavior: smooth;
-  background-color: var(--background-body);
+  background-color: var(--bg-page);
 }
 
 body {
   max-width: 1440px;
   margin: 0 auto;
-}
-
-body.lock {
-  overflow: hidden;
 }
 
 h1,
@@ -33,7 +29,7 @@ p {
 
 h2 {
   margin: 0;
-  color: var(--text-dark);
+  color: var(--text-primary);
   font-size: 60px;
   font-weight: 600;
   line-height: 1.25;
@@ -60,11 +56,11 @@ button {
   bottom: -6px;
   width: 100%;
   height: 2px;
-  background: var(--text-dark);
+  background: var(--text-primary);
 }
 
 h1 {
-  color: var(--text-dark);
+  color: var(--text-primary);
   font-family: "Inter", sans-serif;
   font-size: 60px;
   font-weight: 600;
@@ -97,25 +93,25 @@ h1 {
   align-items: center;
   gap: 8px;
   border-radius: 100px;
-  border: 1px solid var(--border-light);
-  color: var(--text-dark);
-  background-color: var(--background-body);
+  border: 1px solid var(--border-inverse);
+  color: var(--text-primary);
+  background-color: var(--bg-page);
 }
 
 .controls .active {
-  background-color: var(--background-container);
-  color: var(--text-light);
+  background-color: var(--bg-container);
+  color: var(--text-inverse);
 }
 
 .controls .active .icon_wrapper {
-  background-color: var(--background-body);
+  background-color: var(--bg-page);
 }
 
 .icon_wrapper {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: var(--border-light);
+  background-color: var(--border-inverse);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,8 +131,8 @@ h1 {
   flex-direction: column;
   align-items: center;
   border-radius: 40px;
-  border: 1px solid var(--border-light);
-  color: var(--text-dark);
+  border: 1px solid var(--border-inverse);
+  color: var(--text-primary);
 }
 
 .image_wrapper {
@@ -206,7 +202,7 @@ h1 {
     width: 60px;
     height: 60px;
     border-radius: 100px;
-    border: 1px solid var(--border-dark);
+    border: 1px solid var(--border-inverse);
   }
 
   .refresh_button_wrapper {
@@ -282,8 +278,8 @@ h1 {
   }
 
   .menu-btn:hover {
-    background-color: var(--background-container);
-    color: var(--text-light);
+    background-color: var(--bg-container);
+    color: var(--text-inverse);
     cursor: pointer;
     transition: 500ms ease-out;
   }
@@ -293,8 +289,12 @@ h1 {
   }
 
   .menu-btn:hover .icon_wrapper {
-    background-color: var(--background-body);
+    background-color: var(--bg-page);
     transition: 500ms ease-out;
+  }
+
+  .product > * :hover {
+    cursor: pointer;
   }
 
   .product:hover img {
@@ -303,16 +303,16 @@ h1 {
 
   .size:hover,
   .additives:hover {
-    background-color: var(--background-container, #665f55);
+    background-color: var(--bg-container);
   }
 
   .size:hover :first-child,
   .additives:hover :first-child {
-    background-color: var(--background-body);
+    background-color: var(--bg-page);
   }
 
   .size:hover :last-child,
   .additives:hover :last-child {
-    color: var(--background-body);
+    color: var(--bg-page);
   }
 }
