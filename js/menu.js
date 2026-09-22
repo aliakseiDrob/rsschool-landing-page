@@ -1,31 +1,19 @@
 import products from "../asserts/data/products.json" with { type: "json" };
 
-const refreshButtonWrapper = document.querySelector(".refresh_button_wrapper");
-const menuWrapper = document.querySelector(".grid_menu_wrapper");
+const menuContent = document.querySelector(".menu-content");
 
 let displayedProducts = 0;
 
 generateMenu();
 
 function generateMenu(category = "coffee") {
-  refreshButtonWrapper.style.display = "none";
   let productsByCategory = products.filter(
     (product) => product.category == category,
   );
-  menuWrapper.replaceChildren();
-  if (window.innerWidth <= 768) {
-    for (let i = 0; i < 4; i++) {
-      menuWrapper.appendChild(createCard(productsByCategory[i]));
-      displayedProducts += 1;
-    }
-    if (displayedProducts < productsByCategory.length) {
-      refreshButtonWrapper.style.display = "flex";
-    }
-  } else {
-    for (let i = 0; i < productsByCategory.length; i++) {
-      menuWrapper.appendChild(createCard(productsByCategory[i]));
-      displayedProducts += 1;
-    }
+  menuContent.replaceChildren();
+  for (let i = 0; i < productsByCategory.length; i++) {
+    menuContent.appendChild(createCard(productsByCategory[i]));
+    displayedProducts += 1;
   }
 }
 

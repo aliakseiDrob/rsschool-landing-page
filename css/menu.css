@@ -72,6 +72,12 @@ h1 {
   margin: 0 auto;
 }
 
+.menu_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .controls {
   display: flex;
   justify-content: center;
@@ -117,7 +123,7 @@ h1 {
   justify-content: center;
 }
 
-.grid_menu_wrapper {
+.menu-content {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -179,34 +185,22 @@ h1 {
   margin: 9px 0 18px 19px;
 }
 
+.show-more-btn {
+  cursor: pointer;
+  background-color: inherit;
+  margin-top: 30px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  border: 1px solid var(--border-inverse);
+}
+
 @media only screen and (max-width: 768px) {
   h1 {
     padding: 14px 10px;
-  }
-
-  .grid_menu {
-    justify-content: center;
-  }
-
-  .refresh_button_wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-  }
-
-  .refresh_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 100px;
-    border: 1px solid var(--border-inverse);
-  }
-
-  .refresh_button_wrapper {
-    display: none;
   }
 
   .modal-product {
@@ -216,6 +210,14 @@ h1 {
 
   .modal-product .image_wrapper {
     width: 424px;
+  }
+
+  .menu-content > *:nth-child(n + 5) {
+    display: none;
+  }
+
+  .show-more-btn {
+    display: flex;
   }
 }
 
@@ -280,7 +282,6 @@ h1 {
   .menu-btn:hover {
     background-color: var(--bg-container);
     color: var(--text-inverse);
-    cursor: pointer;
     transition: 500ms ease-out;
   }
 
@@ -314,5 +315,10 @@ h1 {
   .size:hover :last-child,
   .additives:hover :last-child {
     color: var(--bg-page);
+  }
+
+  .show-more-btn:hover {
+    background-color: var(--bg-accent);
+    transition: 500ms ease-out;
   }
 }
