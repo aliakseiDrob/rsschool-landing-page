@@ -332,6 +332,10 @@ body {
   .mobile-app .content-wrapper {
     flex-direction: column;
   }
+
+  .section-enjoy_content {
+    padding-left: 60px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -354,7 +358,15 @@ body {
     font-size: 32px;
   }
 
-  .section_enjoy .section-header {
+  .enjoy_wrapper {
+    width: 100%;
+  }
+
+  .section-enjoy_content {
+    padding: 60px 16px;
+  }
+
+  .enjoy_wrapper h1 {
     font-size: 42px;
     line-height: 115%;
   }

@@ -5,9 +5,22 @@
   padding: 20px 40px;
 }
 
-.logo,
+.logo-light,
+.logo-dark,
 .logo-link {
   z-index: 55;
+}
+
+.logo-dark {
+  display: none;
+}
+
+[data-theme="dark"] .logo-light {
+  display: none;
+}
+
+[data-theme="dark"] .logo-dark {
+  display: block;
 }
 
 .header_menu_wrapper {
@@ -51,6 +64,18 @@
 .coffee-cup {
   margin-left: 9px;
   margin-bottom: 5px;
+}
+
+.coffee-cup-dark {
+  display: none;
+}
+
+[data-theme="dark"] .coffee-cup-light {
+  display: none;
+}
+
+[data-theme="dark"] .coffee-cup-dark {
+  display: block;
 }
 
 .nav_item:after,
