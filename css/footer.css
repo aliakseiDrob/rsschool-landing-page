@@ -1,0 +1,140 @@
+.footer .content-wrapper {
+  padding-bottom: 40px;
+}
+
+.footer_wrapper {
+  padding: 100px;
+  display: flex;
+  gap: 100px;
+  border-radius: 40px;
+  background-color: var(--bg-container);
+}
+
+.left_pane {
+  display: flex;
+  width: 45.8%;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.left_pane h2 {
+  color: var(--text-inverse);
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.icons {
+  display: flex;
+  gap: 12px;
+}
+
+.icon-wrapper {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid var(--border-primary);
+}
+
+.right_pane {
+  padding-top: 33px;
+}
+
+.contact-us {
+  color: var(--text-inverse);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.contacts a {
+  text-decoration: none;
+}
+
+.contacts {
+  margin-top: 37px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tel,
+.geo {
+  position: relative;
+  width: 177px;
+}
+
+.tel:after,
+.geo:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0px;
+  height: 2px;
+  background: var(--text-inverse);
+  transition: all 500ms;
+}
+
+.contacts p {
+  display: inline;
+  margin-left: 2px;
+  color: var(--text-inverse);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+@media (hover: hover) {
+  .icon-wrapper:hover {
+    background-color: var(--bg-page);
+    border: none;
+    transition: background-color 500ms ease-out;
+  }
+
+  .icon-wrapper:hover {
+    cursor: pointer;
+  }
+
+  .icon-wrapper:hover path {
+    stroke: var(--text-primary);
+    transition: stroke 500ms ease-out;
+  }
+
+  .tel:hover:after,
+  .geo:hover:after {
+    width: 100%;
+    left: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .footer_wrapper {
+    flex-direction: column;
+    padding-left: 60px;
+    gap: 68px;
+  }
+
+  .left_pane {
+    width: 100%;
+  }
+
+  .contacts {
+    margin-bottom: 4px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .left_pane h2 {
+    font-size: 32px;
+  }
+
+  .footer_wrapper {
+    padding: 60px 16px;
+    gap: 8px;
+  }
+}
