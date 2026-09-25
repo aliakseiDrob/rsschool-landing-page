@@ -99,6 +99,10 @@ button {
 }
 
 .image_wrapper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transform: scale(1.1);
   transition: 500ms ease-out;
 }
@@ -135,16 +139,18 @@ button {
 }
 
 .show-more-btn {
-  cursor: pointer;
-  background-color: inherit;
-  margin-top: 30px;
   display: none;
+  margin-top: 30px;
   justify-content: center;
   align-items: center;
   width: 60px;
   height: 60px;
   border-radius: 100px;
   border: 1px solid var(--border-inverse);
+}
+
+.show-more-btn.hidden {
+  display: none;
 }
 
 @media only screen and (max-width: 768px) {
@@ -168,44 +174,23 @@ button {
   .show-more-btn {
     display: flex;
   }
+
+  .menu-content.expanded *:nth-child(n + 5) {
+    display: flex;
+  }
+
+  .menu-content.expanded + .show-more-btn {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 720px) {
-  .body_wrapper {
-    margin: 20px 16px 40px 16px;
-  }
-
   h1 {
-    font-size: 32px;
-  }
-
-  .focus_text {
     font-size: 32px;
   }
 
   .controls {
     gap: 8px;
-  }
-
-  .modal-product {
-    width: 342px;
-    height: 650px;
-  }
-
-  .modal-product .image_wrapper {
-    display: none;
-  }
-
-  .modal-product .info-block {
-    width: 100%;
-  }
-
-  .modal-product .description {
-    margin-right: 2px;
-  }
-
-  .modal-product .title {
-    margin-bottom: 2px;
   }
 
   .size-title,
@@ -248,7 +233,7 @@ button {
   }
 
   .product:hover img {
-    transform: scale(100%);
+    transform: scale(1);
   }
 
   .size:hover,
@@ -267,7 +252,7 @@ button {
   }
 
   .show-more-btn:hover {
-    background-color: var(--bg-accent);
+    background-color: var(--bg-container);
     transition: 500ms ease-out;
   }
 }

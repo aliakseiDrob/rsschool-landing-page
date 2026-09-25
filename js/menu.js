@@ -3,8 +3,12 @@ import createElement from "./utils/create-element.js";
 
 const menuContent = document.querySelector(".menu-content");
 const menuControls = document.querySelector(".controls");
+const showMoreBtn = document.querySelector(".show-more-btn");
 
 generateMenu();
+
+menuControls.addEventListener("click", changeCategory);
+showMoreBtn.addEventListener("click", showMoreCards);
 
 function generateMenu(category = "coffee") {
   let productsByCategory = products.filter(
@@ -14,6 +18,14 @@ function generateMenu(category = "coffee") {
   const fragment = document.createDocumentFragment();
 
   productsByCategory.forEach((product) => createCard(product, fragment));
+
+  if (productsByCategory.length <= 4) {
+    showMoreBtn.classList.add("hidden");
+  } else {
+    showMoreBtn.classList.remove("hidden");
+  }
+
+  menuContent.classList.remove("expanded");
 
   menuContent.replaceChildren(fragment);
 }
@@ -76,4 +88,6 @@ function changeCategory(event) {
   }
 }
 
-menuControls.addEventListener("click", changeCategory);
+function showMoreCards() {
+  menuContent.classList.add("expanded");
+}
