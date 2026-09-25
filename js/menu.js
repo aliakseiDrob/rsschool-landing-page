@@ -1,6 +1,8 @@
 import products from "../asserts/data/products.json" with { type: "json" };
+import createElement from "./utils/create-element.js";
 
 const menuContent = document.querySelector(".menu-content");
+const menuControls = document.querySelector(".controls");
 
 generateMenu();
 
@@ -27,7 +29,7 @@ function createCard(item, parent) {
     parent: productCard,
   });
 
-  let image = createElement({
+  createElement({
     tag: "img",
     attributes: {
       src: item.url,
@@ -65,35 +67,13 @@ function createCard(item, parent) {
   return productCard;
 }
 
-function createElement({
-  tag = "div",
-  cssClasses = [],
-  text = "",
-  attributes = {},
-  events = {},
-  parent = null,
-} = {}) {
-  const element = document.createElement(tag);
-
-  if (cssClasses.length > 0) {
-    element.classList.add(...cssClasses);
+function changeCategory(event) {
+  const categoryBtn = event.target.closest(".category-btn");
+  if (categoryBtn && !categoryBtn.classList.contains("active")) {
+    [...menuControls.children].forEach((btn) => btn.classList.remove("active"));
+    generateMenu(categoryBtn.value);
+    categoryBtn.classList.add("active");
   }
-
-  if (text) {
-    element.textContent = text;
-  }
-
-  for (const [key, value] of Object.entries(attributes)) {
-    element.setAttribute(key, value);
-  }
-
-  for (const [eventType, listener] of Object.entries(events)) {
-    element.addEventListener(eventType, listener);
-  }
-
-  if (parent) {
-    parent.append(element);
-  }
-
-  return element;
 }
+
+menuControls.addEventListener("click", changeCategory);
