@@ -1,55 +1,7 @@
 @import "variables.css";
+@import "common.css";
 @import "header.css";
 @import "footer.css";
-
-@font-face {
-  font-family: "Inter";
-  src: url("../asserts/fonts/Inter/Inter-SemiBold.ttf");
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("../asserts/fonts/Inter/Inter-Regular.ttf");
-  font-weight: 400;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: Inter;
-  scroll-behavior: smooth;
-  background-color: var(--bg-page);
-  color: var(--text-primary);
-}
-
-h1,
-h2 {
-  margin: 0;
-}
-
-body {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.content-wrapper {
-  padding: 0 40px 100px;
-  display: flex;
-}
-
-.section-header {
-  font-size: 3.75rem;
-  line-height: 125%;
-  margin-bottom: 40px;
-}
-
-.accent-text {
-  font-style: italic;
-  color: var(--text-accent);
-}
 
 .section-enjoy_content {
   width: 100%;
@@ -109,9 +61,6 @@ body {
   overflow: hidden;
 }
 
-.section_favorite .content-wrapper {
-  flex-direction: column;
-}
 
 .section_favorite .section-header {
   text-align: center;
@@ -213,10 +162,6 @@ body {
 .control.active {
   background-color: var(--border-inverse);
   animation: progress 7s linear;
-}
-
-.section_about .content-wrapper {
-  flex-direction: column;
 }
 
 .galery {
