@@ -2,30 +2,98 @@ import products from "../asserts/data/products.json" with { type: "json" };
 
 const menuContent = document.querySelector(".menu-content");
 
-let displayedProducts = 0;
-
 generateMenu();
 
 function generateMenu(category = "coffee") {
   let productsByCategory = products.filter(
-    (product) => product.category == category,
+    (product) => product.category === category,
   );
-  menuContent.replaceChildren();
-  for (let i = 0; i < productsByCategory.length; i++) {
-    menuContent.appendChild(createCard(productsByCategory[i]));
-    displayedProducts += 1;
-  }
+
+  const fragment = document.createDocumentFragment();
+
+  productsByCategory.forEach((product) => createCard(product, fragment));
+
+  menuContent.replaceChildren(fragment);
 }
 
-function createCard(item) {
-  let productCard = document.createElement("div");
-  productCard.classList.add("product");
-  productCard.innerHTML = `<div class="image_wrapper"> \n
-    <img class=${item.category} src="${item.url}" alt="${item.name}"> \n </div> \n
-    <div class="info-block">\n
-    <div class="title">${item.name}</div> \n
-    <div class="description">${item.description}</div>
-    <div class="price">$${item.price}</div> \n
-    </div>`;
+function createCard(item, parent) {
+  let productCard = createElement({
+    cssClasses: ["product"],
+    parent,
+  });
+
+  let imageWrapper = createElement({
+    cssClasses: ["image_wrapper"],
+    parent: productCard,
+  });
+
+  let image = createElement({
+    tag: "img",
+    attributes: {
+      src: item.url,
+      alt: `${item.name} — ${item.description}`,
+      loading: "lazy",
+    },
+    parent: imageWrapper,
+  });
+
+  let infoWrapper = createElement({
+    cssClasses: ["info-block"],
+    parent: productCard,
+  });
+
+  createElement({
+    tag: "h3",
+    cssClasses: ["title"],
+    text: item.name,
+    parent: infoWrapper,
+  });
+
+  createElement({
+    tag: "p",
+    cssClasses: ["description"],
+    text: item.description,
+    parent: infoWrapper,
+  });
+
+  createElement({
+    tag: "p",
+    cssClasses: ["price"],
+    text: item.price,
+    parent: infoWrapper,
+  });
   return productCard;
+}
+
+function createElement({
+  tag = "div",
+  cssClasses = [],
+  text = "",
+  attributes = {},
+  events = {},
+  parent = null,
+} = {}) {
+  const element = document.createElement(tag);
+
+  if (cssClasses.length > 0) {
+    element.classList.add(...cssClasses);
+  }
+
+  if (text) {
+    element.textContent = text;
+  }
+
+  for (const [key, value] of Object.entries(attributes)) {
+    element.setAttribute(key, value);
+  }
+
+  for (const [eventType, listener] of Object.entries(events)) {
+    element.addEventListener(eventType, listener);
+  }
+
+  if (parent) {
+    parent.append(element);
+  }
+
+  return element;
 }

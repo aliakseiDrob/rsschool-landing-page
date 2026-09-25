@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+.content-wrapper {
+  padding: 0 40px 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content-wrapper--column {
+  flex-direction: column;
+}
+
+.section-header {
+  font-size: 3.75rem;
+  line-height: 125%;
+  margin-bottom: 40px;
+}
+
+.accent-text {
+  color: var(--text-accent);
+  font-style: italic;
+}
+
+.link{
+  text-decoration: none;
+  color: inherit;  
+}
