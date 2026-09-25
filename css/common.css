@@ -20,9 +20,9 @@ h2 {
 }
 
 .content-wrapper {
-  width: 100%;
   padding: 0 40px 100px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .content-wrapper--column {
@@ -38,4 +38,9 @@ h2 {
 .accent-text {
   color: var(--text-accent);
   font-style: italic;
+}
+
+.link{
+  text-decoration: none;
+  color: inherit;  
 }
