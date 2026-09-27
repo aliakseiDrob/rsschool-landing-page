@@ -61,7 +61,6 @@
   overflow: hidden;
 }
 
-
 .section_favorite .section-header {
   text-align: center;
 }
@@ -156,12 +155,60 @@
   width: 100%;
   height: 4px;
   border-radius: 100px;
-  background-color: var(--border-inverse);
+  background-color: var(--border-primary);
 }
 
 .control.active {
   background-color: var(--border-inverse);
   animation: progress 7s linear;
+}
+
+.to_left {
+  animation-name: left;
+}
+
+.to_right {
+  animation-name: right;
+  animation-direction: reverse;
+}
+
+.from_left {
+  animation-name: left;
+  animation-direction: reverse;
+}
+
+.from_right {
+  animation-name: right;
+}
+
+@keyframes left {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes right {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 .galery {
