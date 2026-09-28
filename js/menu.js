@@ -1,31 +1,77 @@
 import products from "../asserts/data/products.json" with { type: "json" };
+import createElement from "./utils/create-element.js";
 
 const menuContent = document.querySelector(".menu-content");
+const showMoreBtn = document.querySelector(".show-more-btn");
 
-let displayedProducts = 0;
-
-generateMenu();
-
-function generateMenu(category = "coffee") {
+export default function generateMenu(category = "coffee") {
   let productsByCategory = products.filter(
-    (product) => product.category == category,
+    (product) => product.category === category,
   );
-  menuContent.replaceChildren();
-  for (let i = 0; i < productsByCategory.length; i++) {
-    menuContent.appendChild(createCard(productsByCategory[i]));
-    displayedProducts += 1;
+
+  const fragment = document.createDocumentFragment();
+
+  productsByCategory.forEach((product) => createCard(product, fragment));
+
+  if (productsByCategory.length <= 4) {
+    showMoreBtn.classList.add("hidden");
+  } else {
+    showMoreBtn.classList.remove("hidden");
   }
+
+  menuContent.classList.remove("expanded");
+
+  menuContent.replaceChildren(fragment);
 }
 
-function createCard(item) {
-  let productCard = document.createElement("div");
-  productCard.classList.add("product");
-  productCard.innerHTML = `<div class="image_wrapper"> \n
-    <img class=${item.category} src="${item.url}" alt="${item.name}"> \n </div> \n
-    <div class="info-block">\n
-    <div class="title">${item.name}</div> \n
-    <div class="description">${item.description}</div>
-    <div class="price">$${item.price}</div> \n
-    </div>`;
+function createCard(item, parent) {
+  let productCard = createElement({
+    cssClasses: ["product"],
+    attributes: {
+      "data-id": item.id,
+    },
+    parent,
+  });
+
+  let imageWrapper = createElement({
+    cssClasses: ["image_wrapper"],
+    parent: productCard,
+  });
+
+  createElement({
+    tag: "img",
+    attributes: {
+      src: item.url,
+      alt: `${item.name} — ${item.description}`,
+      loading: "lazy",
+    },
+    parent: imageWrapper,
+  });
+
+  let infoWrapper = createElement({
+    cssClasses: ["info-block"],
+    parent: productCard,
+  });
+
+  createElement({
+    tag: "h3",
+    cssClasses: ["title"],
+    text: item.name,
+    parent: infoWrapper,
+  });
+
+  createElement({
+    tag: "p",
+    cssClasses: ["description"],
+    text: item.description,
+    parent: infoWrapper,
+  });
+
+  createElement({
+    tag: "p",
+    cssClasses: ["price"],
+    text: item.price,
+    parent: infoWrapper,
+  });
   return productCard;
 }

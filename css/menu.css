@@ -1,52 +1,15 @@
 @import "variables.css";
+@import "common.css";
 @import "header.css";
 @import "footer.css";
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: "Inter", sans-serif;
-  scroll-behavior: smooth;
-  background-color: var(--bg-page);
-}
-
-body {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-h1,
-p {
-  margin: 0;
-}
 
 .nav_item,
 .menu_link {
   position: relative;
 }
 
-h2 {
-  margin: 0;
-  color: var(--text-primary);
-  font-size: 60px;
-  font-weight: 600;
-  line-height: 1.25;
-}
-
 button {
   border: none;
-}
-
-.content-wrapper {
-  padding: 0 40px 100px;
-}
-
-.accent-text {
-  font-style: italic;
-  color: var(--text-accent);
-  font-style: italic;
 }
 
 .menu_link:after {
@@ -57,19 +20,6 @@ button {
   width: 100%;
   height: 2px;
   background: var(--text-primary);
-}
-
-h1 {
-  color: var(--text-primary);
-  font-family: "Inter", sans-serif;
-  font-size: 60px;
-  font-weight: 600;
-  font-style: normal;
-  line-height: 1.25;
-  letter-spacing: 2px;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 .menu_wrapper {
@@ -92,7 +42,7 @@ h1 {
   line-height: 1.5;
 }
 
-.menu-btn {
+.category-btn {
   display: flex;
   padding: 8px 16px 8px 8px;
   justify-content: center;
@@ -100,7 +50,6 @@ h1 {
   gap: 8px;
   border-radius: 100px;
   border: 1px solid var(--border-inverse);
-  color: var(--text-primary);
   background-color: var(--bg-page);
 }
 
@@ -150,6 +99,10 @@ h1 {
 }
 
 .image_wrapper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transform: scale(1.1);
   transition: 500ms ease-out;
 }
@@ -186,16 +139,18 @@ h1 {
 }
 
 .show-more-btn {
-  cursor: pointer;
-  background-color: inherit;
-  margin-top: 30px;
   display: none;
+  margin-top: 30px;
   justify-content: center;
   align-items: center;
   width: 60px;
   height: 60px;
   border-radius: 100px;
   border: 1px solid var(--border-inverse);
+}
+
+.show-more-btn.hidden {
+  display: none;
 }
 
 @media only screen and (max-width: 768px) {
@@ -219,44 +174,23 @@ h1 {
   .show-more-btn {
     display: flex;
   }
+
+  .menu-content.expanded *:nth-child(n + 5) {
+    display: flex;
+  }
+
+  .menu-content.expanded + .show-more-btn {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 720px) {
-  .body_wrapper {
-    margin: 20px 16px 40px 16px;
-  }
-
   h1 {
-    font-size: 32px;
-  }
-
-  .focus_text {
     font-size: 32px;
   }
 
   .controls {
     gap: 8px;
-  }
-
-  .modal-product {
-    width: 342px;
-    height: 650px;
-  }
-
-  .modal-product .image_wrapper {
-    display: none;
-  }
-
-  .modal-product .info-block {
-    width: 100%;
-  }
-
-  .modal-product .description {
-    margin-right: 2px;
-  }
-
-  .modal-product .title {
-    margin-bottom: 2px;
   }
 
   .size-title,
@@ -279,7 +213,7 @@ h1 {
     cursor: default;
   }
 
-  .menu-btn:hover {
+  .category-btn:hover {
     background-color: var(--bg-container);
     color: var(--text-inverse);
     transition: 500ms ease-out;
@@ -289,7 +223,7 @@ h1 {
     cursor: default;
   }
 
-  .menu-btn:hover .icon_wrapper {
+  .category-btn:hover .icon_wrapper {
     background-color: var(--bg-page);
     transition: 500ms ease-out;
   }
@@ -299,7 +233,7 @@ h1 {
   }
 
   .product:hover img {
-    transform: scale(100%);
+    transform: scale(1);
   }
 
   .size:hover,
@@ -318,7 +252,164 @@ h1 {
   }
 
   .show-more-btn:hover {
-    background-color: var(--bg-accent);
+    background-color: var(--bg-container);
     transition: 500ms ease-out;
+  }
+}
+
+/***********Modal************/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  background-color: var(--bg-overlay);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: var(--bg-page);
+  border-radius: 40px;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  padding: 16px;
+}
+
+.modal-image-container {
+  flex: 0 0 310px;
+  height: 310px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.modal-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-info {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.modal-title {
+  margin-bottom: -10px;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.modal-description {
+  line-height: 1.5;
+}
+
+.param-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.param-title {
+  line-height: 1.5;
+}
+
+.param-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.param-btn {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  gap: 8px;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid var(--border-primary);
+  border-radius: 100px;
+  background-color: transparent;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.param-btn .icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--border-primary);
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.param-btn.active {
+  background-color: var(--bg-container);
+  border: none;
+  color: var(--text-inverse);
+}
+
+.param-btn.active .icon-circle {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}
+
+.modal-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.modal-note {
+  padding: 12px 0;
+  display: flex;
+  gap: 8px;
+  font-size: 10px;
+  line-height: 1.4;
+  border-top: 1px solid var(--border-primary);
+}
+
+.modal-note::before {
+  content: "ⓘ";
+  font-size: 14px;
+  line-height: 1;
+}
+
+.btn-close {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-inverse);
+  border-radius: 100px;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+@media (max-width: 720px) {
+  .modal-image-container {
+    display: none;
+  }
+
+  .modal-overlay {
+    padding: 22px;
   }
 }
