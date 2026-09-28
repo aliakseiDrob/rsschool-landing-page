@@ -8,7 +8,13 @@ function createModal(parent) {
   modalOverlay = createElement({
     cssClasses: ["modal-overlay", "hidden"],
     parent,
-    events: { click: closeModal },
+    events: {
+      click: (e) => {
+        if (e.target === e.currentTarget) {
+          closeModal();
+        }
+      },
+    },
   });
   return modalOverlay;
 }
