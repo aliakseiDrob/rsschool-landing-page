@@ -1,6 +1,6 @@
 .header .content-wrapper {
   position: relative;
-  display: flex;
+  gap: 20px;
   justify-content: space-between;
   padding: 20px 40px;
 }
@@ -16,6 +16,7 @@
 .header_menu_wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   background-color: var(--bg-page);
   color: var(--text-primary);
@@ -37,8 +38,6 @@
 
 .menu_link {
   height: 20px;
-  margin-top: 18px;
-  margin-left: 80px;
   display: flex;
   align-items: center;
   position: relative;
@@ -169,12 +168,12 @@ input:checked + .theme-slider:before {
     gap: 15px;
   }
 
-  .header_menu_wrapper {
-    width: 100%;
-  }
-
   .nav_list {
     padding-left: 0;
+  }
+
+  .header_menu_wrapper {
+    flex: 1;
   }
 }
 
