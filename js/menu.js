@@ -2,15 +2,9 @@ import products from "../asserts/data/products.json" with { type: "json" };
 import createElement from "./utils/create-element.js";
 
 const menuContent = document.querySelector(".menu-content");
-const menuControls = document.querySelector(".controls");
 const showMoreBtn = document.querySelector(".show-more-btn");
 
-generateMenu();
-
-menuControls.addEventListener("click", changeCategory);
-showMoreBtn.addEventListener("click", showMoreCards);
-
-function generateMenu(category = "coffee") {
+export default function generateMenu(category = "coffee") {
   let productsByCategory = products.filter(
     (product) => product.category === category,
   );
@@ -33,6 +27,9 @@ function generateMenu(category = "coffee") {
 function createCard(item, parent) {
   let productCard = createElement({
     cssClasses: ["product"],
+    attributes: {
+      "data-id": item.id,
+    },
     parent,
   });
 
@@ -77,17 +74,4 @@ function createCard(item, parent) {
     parent: infoWrapper,
   });
   return productCard;
-}
-
-function changeCategory(event) {
-  const categoryBtn = event.target.closest(".category-btn");
-  if (categoryBtn && !categoryBtn.classList.contains("active")) {
-    [...menuControls.children].forEach((btn) => btn.classList.remove("active"));
-    generateMenu(categoryBtn.value);
-    categoryBtn.classList.add("active");
-  }
-}
-
-function showMoreCards() {
-  menuContent.classList.add("expanded");
 }

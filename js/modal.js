@@ -1,15 +1,22 @@
 import createElement from "./utils/create-element.js";
-import products from "../asserts/data/products.json" with { type: "json" };
 
-function createModal(item, parent) {
-  let modalOverlay = createElement({
-    cssClasses: ["modal-overlay"],
+let modalOverlay;
+
+createModal(document.body);
+
+function createModal(parent) {
+  modalOverlay = createElement({
+    cssClasses: ["modal-overlay", "hidden"],
     parent,
+    events: { click: closeModal },
   });
+  return modalOverlay;
+}
 
+function updateModal(item, parent) {
   let modalContent = createElement({
     cssClasses: ["modal-content"],
-    parent: modalOverlay,
+    parent: parent,
   });
 
   let imageContainer = createElement({
@@ -64,15 +71,9 @@ function createModal(item, parent) {
     parent: sizeGroup,
   });
 
-  const sizes = [
-    { label: "S", value: "200 ml", active: true },
-    { label: "M", value: "300 ml" },
-    { label: "L", value: "400 ml" },
-  ];
-
-  sizes.forEach((size) => {
+  Object.entries(item.sizes).forEach(([key, data]) => {
     let btnClasses = ["button", "param-btn"];
-    if (size.active) btnClasses.push("active");
+    if (data.selected) btnClasses.push("active");
 
     let btn = createElement({
       tag: "button",
@@ -84,13 +85,13 @@ function createModal(item, parent) {
     createElement({
       tag: "span",
       cssClasses: ["icon-circle"],
-      text: size.label,
+      text: key.toUpperCase(),
       parent: btn,
     });
 
     createElement({
       tag: "span",
-      text: size.value,
+      text: data.size,
       parent: btn,
     });
   });
@@ -113,13 +114,7 @@ function createModal(item, parent) {
     parent: additivesGroup,
   });
 
-  const additives = [
-    { num: "1", name: "Sugar" },
-    { num: "2", name: "Cinnamon" },
-    { num: "3", name: "Syrup" },
-  ];
-
-  additives.forEach((additive) => {
+  item.additives.forEach((data, index) => {
     let btn = createElement({
       tag: "button",
       cssClasses: ["button", "param-btn"],
@@ -130,13 +125,13 @@ function createModal(item, parent) {
     createElement({
       tag: "span",
       cssClasses: ["icon-circle"],
-      text: additive.num,
+      text: index + 1,
       parent: btn,
     });
 
     createElement({
       tag: "span",
-      text: additive.name,
+      text: data.name,
       parent: btn,
     });
   });
@@ -172,8 +167,20 @@ function createModal(item, parent) {
     attributes: { type: "button", id: "modal-close-btn" },
     text: "Close",
     parent: modalInfo,
-    // events: { click: () => modalOverlay.remove() }
+    events: { click: closeModal },
   });
 
-  return modalOverlay;
+  modalOverlay.replaceChildren(modalContent);
 }
+
+function showModal() {
+  modalOverlay.classList.remove("hidden");
+  document.body.classList.add("lock");
+}
+
+function closeModal() {
+  modalOverlay.classList.add("hidden");
+  document.body.classList.remove("lock");
+}
+
+export { createModal, updateModal, showModal };
