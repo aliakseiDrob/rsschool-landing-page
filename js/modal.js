@@ -1,6 +1,8 @@
 import createElement from "./utils/create-element.js";
 
-let modalOverlay;
+let modalOverlay = null;
+let currentItem = null;
+let totalPrice = null;
 
 createModal(document.body);
 
@@ -20,6 +22,8 @@ function createModal(parent) {
 }
 
 function updateModal(item, parent) {
+  currentItem = structuredClone(item);
+
   let modalContent = createElement({
     cssClasses: ["modal-content"],
     parent: parent,
@@ -34,8 +38,8 @@ function updateModal(item, parent) {
     tag: "img",
     attributes: {
       id: "modal-img",
-      src: item.url,
-      alt: item.name,
+      src: currentItem.url,
+      alt: currentItem.name,
     },
     parent: imageContainer,
   });
@@ -48,14 +52,14 @@ function updateModal(item, parent) {
   createElement({
     tag: "h3",
     cssClasses: ["modal-title"],
-    text: item.name,
+    text: currentItem.name,
     parent: modalInfo,
   });
 
   createElement({
     tag: "p",
     cssClasses: ["modal-description"],
-    text: item.description,
+    text: currentItem.description,
     parent: modalInfo,
   });
 
@@ -77,30 +81,7 @@ function updateModal(item, parent) {
     parent: sizeGroup,
   });
 
-  Object.entries(item.sizes).forEach(([key, data]) => {
-    let btnClasses = ["button", "param-btn"];
-    if (data.selected) btnClasses.push("active");
-
-    let btn = createElement({
-      tag: "button",
-      cssClasses: btnClasses,
-      attributes: { type: "button" },
-      parent: sizeOptions,
-    });
-
-    createElement({
-      tag: "span",
-      cssClasses: ["icon-circle"],
-      text: key.toUpperCase(),
-      parent: btn,
-    });
-
-    createElement({
-      tag: "span",
-      text: data.size,
-      parent: btn,
-    });
-  });
+  createSizeBlock(sizeOptions);
 
   let additivesGroup = createElement({
     cssClasses: ["param-group"],
@@ -120,27 +101,7 @@ function updateModal(item, parent) {
     parent: additivesGroup,
   });
 
-  item.additives.forEach((data, index) => {
-    let btn = createElement({
-      tag: "button",
-      cssClasses: ["button", "param-btn"],
-      attributes: { type: "button" },
-      parent: additivesOptions,
-    });
-
-    createElement({
-      tag: "span",
-      cssClasses: ["icon-circle"],
-      text: index + 1,
-      parent: btn,
-    });
-
-    createElement({
-      tag: "span",
-      text: data.name,
-      parent: btn,
-    });
-  });
+  createAdditives(additivesOptions);
 
   let modalTotal = createElement({
     cssClasses: ["modal-total"],
@@ -153,10 +114,10 @@ function updateModal(item, parent) {
     parent: modalTotal,
   });
 
-  createElement({
+  totalPrice = createElement({
     tag: "span",
     attributes: { id: "modal-total-price" },
-    text: item.price,
+    text: currentItem.price,
     parent: modalTotal,
   });
 
@@ -177,6 +138,78 @@ function updateModal(item, parent) {
   });
 
   modalOverlay.replaceChildren(modalContent);
+
+  calculateTotal();
+}
+
+function createAdditives(parent) {
+  currentItem.additives.forEach((data, index) => {
+    let btn = createElement({
+      tag: "button",
+      cssClasses: ["button", "param-btn"],
+      attributes: { type: "button" },
+      parent: parent,
+      events: {
+        click: () => {
+          data.selected = !data.selected;
+          btn.classList.toggle("active");
+          calculateTotal();
+        },
+      },
+    });
+
+    createElement({
+      tag: "span",
+      cssClasses: ["icon-circle"],
+      text: index + 1,
+      parent: btn,
+    });
+
+    createElement({
+      tag: "span",
+      text: data.name,
+      parent: btn,
+    });
+  });
+}
+
+function createSizeBlock(parent) {
+  const sizeButtons = [];
+  Object.entries(currentItem.sizes).forEach(([key, data]) => {
+    let btnClasses = ["button", "param-btn"];
+    if (data.selected) btnClasses.push("active");
+
+    let btn = createElement({
+      tag: "button",
+      cssClasses: btnClasses,
+      attributes: { type: "button" },
+      parent: parent,
+      events: {
+        click: () => {
+          Object.values(currentItem.sizes).forEach((s) => (s.selected = false));
+          data.selected = true;
+          sizeButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          calculateTotal();
+        },
+      },
+    });
+
+    sizeButtons.push(btn);
+
+    createElement({
+      tag: "span",
+      cssClasses: ["icon-circle"],
+      text: key.toUpperCase(),
+      parent: btn,
+    });
+
+    createElement({
+      tag: "span",
+      text: data.size,
+      parent: btn,
+    });
+  });
 }
 
 function showModal() {
@@ -187,6 +220,28 @@ function showModal() {
 function closeModal() {
   modalOverlay.classList.add("hidden");
   document.body.classList.remove("lock");
+}
+
+function calculateTotal() {
+  let total = parseFloat(currentItem.price);
+
+  const selectedSize = Object.values(currentItem.sizes).find(
+    (size) => size.selected,
+  );
+
+  if (selectedSize) {
+    total += parseFloat(selectedSize["add-price"]);
+  }
+
+  currentItem.additives.forEach((additive) => {
+    if (additive.selected) {
+      total += parseFloat(additive["add-price"]);
+    }
+  });
+
+  if (totalPrice) {
+    totalPrice.textContent = total.toFixed(2);
+  }
 }
 
 export { createModal, updateModal, showModal };
