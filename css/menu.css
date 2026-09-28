@@ -256,3 +256,160 @@ button {
     transition: 500ms ease-out;
   }
 }
+
+/***********Modal************/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  background-color: var(--bg-overlay);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: var(--bg-page);
+  border-radius: 40px;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  padding: 16px;
+}
+
+.modal-image-container {
+  flex: 0 0 310px;
+  height: 310px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.modal-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-info {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.modal-title {
+  margin-bottom: -10px;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.modal-description {
+  line-height: 1.5;
+}
+
+.param-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.param-title {
+  line-height: 1.5;
+}
+
+.param-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.param-btn {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  gap: 8px;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid var(--border-primary);
+  border-radius: 100px;
+  background-color: transparent;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.param-btn .icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--border-primary);
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.param-btn.active {
+  background-color: var(--bg-container);
+  border: none;
+  color: var(--text-inverse);
+}
+
+.param-btn.active .icon-circle {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}
+
+.modal-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.modal-note {
+  padding: 12px 0;
+  display: flex;
+  gap: 8px;
+  font-size: 10px;
+  line-height: 1.4;
+  border-top: 1px solid var(--border-primary);
+}
+
+.modal-note::before {
+  content: "ⓘ";
+  font-size: 14px;
+  line-height: 1;
+}
+
+.btn-close {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-inverse);
+  border-radius: 100px;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+@media (max-width: 720px) {
+  .modal-image-container {
+    display: none;
+  }
+
+  .modal-overlay {
+    padding: 22px;
+  }
+}
