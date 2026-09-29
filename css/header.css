@@ -187,7 +187,7 @@ input:checked + .theme-slider:before {
     width: 100%;
     flex-direction: column;
     align-content: center;
-    justify-content: start;
+    justify-content: center;
     font-size: 32px;
     font-weight: 600;
     line-height: 125%;
@@ -200,15 +200,17 @@ input:checked + .theme-slider:before {
 
   .header_menu_wrapper.active {
     right: 0;
-    z-index: 10;
   }
 
   .nav_list {
     flex-direction: column;
     gap: 60px;
-    margin-top: 161px;
     align-items: center;
     padding: 0px;
+  }
+
+  .menu_link {
+    margin-top: 100px;
   }
 
   .burger_menu {

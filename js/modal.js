@@ -6,6 +6,12 @@ let totalPrice = null;
 
 createModal(document.body);
 
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !modalOverlay.classList.contains("hidden")) {
+    closeModal();
+  }
+});
+
 function createModal(parent) {
   modalOverlay = createElement({
     cssClasses: ["modal-overlay", "hidden"],
