@@ -35,3 +35,5 @@ function changeCategory(event) {
 function showMoreCards() {
   menuContent.classList.add("expanded");
 }
+
+
