@@ -1,6 +1,7 @@
 const menu = document.querySelector(".header_menu_wrapper");
 const menuBtn = document.querySelector(".burger_menu");
 const body = document.body;
+const breakpoint = 768;
 
 function closeMenu() {
   menu.classList.remove("active");
@@ -43,3 +44,9 @@ if (menu && menuBtn) {
     }
   });
 }
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > breakpoint) {
+    closeMenu();
+  }
+});
