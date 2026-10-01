@@ -222,6 +222,7 @@ input:checked + .theme-slider:before {
     display: block;
     margin-top: 8px;
     z-index: 55;
+    cursor: pointer;
   }
 
   .coffee-cup {
